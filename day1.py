@@ -22,13 +22,12 @@ def findTripleSum(data: list, target: int):
                 if entrysum > target:
                     break
 
+
 def main(day):
     data = aocinput(day)
-    data = [int(item) for item in data]
-    data.sort()
+    data = sorted([int(item) for item in data])
     result = findSum(data, 2020), findTripleSum(data, 2020)
-    #print(result)
-
+    print(result)
 
 
 if __name__ == '__main__':
