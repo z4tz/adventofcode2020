@@ -20,7 +20,7 @@ def time_day(day, runs=1):
 
 def main():
     days = range(1, len(os.listdir('inputs/')) + 1)
-    runs = 10000
+    runs = 1000
 
     for day in days:
         time_day(day, runs)
