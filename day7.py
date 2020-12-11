@@ -38,11 +38,7 @@ def getBag(bagColor: str) -> Bag:
 
 
 def countBags(bag: Bag) -> int:
-    containedBags = bag.contains()
-    if not containedBags:
-        return 1
-    else:
-        return sum([countBags(containedBag) * count for containedBag, count in containedBags.items()]) + 1
+    return sum([countBags(containedBag) * count for containedBag, count in bag.contains().items()]) + 1
 
 
 def containsBag(data: List[str]) -> Tuple[int, int]:
