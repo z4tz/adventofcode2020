@@ -8,22 +8,25 @@ def setupstring(day):
 from day{day} import main"""
 
 
-def time_day(day, runs=1):
+def time_day(day, maxtime=1):
     print("-----## Assignment day {0} ##-----".format(day))
-    if runs > 1:
-        sys.stdout = open(os.devnull, 'w')  # disable print statements
-    time = timeit.timeit(f"main({day})", setup=setupstring(day), number=runs) / runs
+    runs = 0
+    time = 0
+    while time < maxtime:
+        runs += 1
+        if runs > 1:
+            sys.stdout = open(os.devnull, 'w')  # disable print statements
+        time += timeit.timeit(f"main({day})", setup=setupstring(day), number=1)
 
     sys.stdout = sys.__stdout__  # enable print statements again
-    print(f"Time used for assignment {day}: {time}s\n\n")
+    print(f"Time used for assignment {day}: {time/runs:.5f}s - average over {runs} run{'' if runs == 1 else 's'}\n\n")
 
 
 def main():
     days = range(1, len(os.listdir('inputs/')) + 1)
-    runs = 100
 
     for day in days:
-        time_day(day, runs)
+        time_day(day)
 
 
 if __name__ == '__main__':
