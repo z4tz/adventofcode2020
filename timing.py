@@ -8,11 +8,11 @@ def setupstring(day):
 from day{day} import main"""
 
 
-def time_day(day, maxtime=1):
+def time_day(day, mintime=1):
     print("-----## Assignment day {0} ##-----".format(day))
     runs = 0
     time = 0
-    while time < maxtime:
+    while time < mintime:
         runs += 1
         if runs > 1:
             sys.stdout = open(os.devnull, 'w')  # disable print statements
@@ -26,7 +26,7 @@ def main():
     days = range(1, len(os.listdir('inputs/')) + 1)
 
     for day in days:
-        time_day(day)
+        time_day(day, 1)
 
 
 if __name__ == '__main__':

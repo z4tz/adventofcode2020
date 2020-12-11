@@ -40,9 +40,8 @@ def findBrokenInstruction(instructions: List[List[Union[str, int]]]) -> int:
             else:  # if nop
                 tempinstructions[i] = ['jmp', argument]
             accumulator, exitcode = oneVisit(tempinstructions)
-
         i -= 1
-    print(i + 1, instructions[i+1])
+
     return accumulator
 
 
