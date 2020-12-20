@@ -6,4 +6,4 @@ def main(day):
 
 
 if __name__ == '__main__':
-    main(0)
+    main(int(__file__.split('/')[-1][3:-3]))
